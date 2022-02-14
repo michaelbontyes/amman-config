@@ -42,7 +42,23 @@
     {
       "name": "Operation Theater",
       "type": "operationTheater",
-      "chunkSizeToRead": "500"
+      "chunkSizeToRead": "500",
+      "groupedJobConfigs": [
+        {
+          "tableName": "surgical_block_default",
+          "columnsToIgnore": []
+        },
+        {
+          "tableName": "surgical_appointment_default",
+          "columnsToIgnore": [
+            "notes"
+          ]
+        },
+        {
+          "tableName": "surgical_appointment_attributes",
+          "columnsToIgnore": []
+        }
+      ]
     },
     {
       "name": "Person",
@@ -184,6 +200,7 @@
     {
       "name": "Bacteriology Data",
       "type": "bacteriology",
+      "ignoreAllFreeTextConcepts": true,
       "incrementalUpdateConfig": {
         "updateOn": "encounter_id",
         "eventCategory": "Encounter",
