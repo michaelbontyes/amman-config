@@ -56,7 +56,16 @@
         },
         {
           "tableName": "surgical_appointment_attributes",
-          "columnsToIgnore": []
+          "columnsToIgnore": [
+            "procedure",
+            "otherSurgeon",
+            "surgicalAssistant",
+            "anaesthetist",
+            "Anaesthesia Technician",
+            "scrubNurse",
+            "circulatingNurse",
+            "notes"
+            ]
         }
       ]
     },
