@@ -8,7 +8,15 @@
     {
       "name": "Patients",
       "type": "patients",
-      "chunkSizeToRead": "500"
+      "chunkSizeToRead": "500",
+      "groupedJobConfigs": [
+        {
+          "tableName": "patient_identifier",
+          "columnsToIgnore": [
+            "Patient_Identifier"
+          ]
+        }
+      ]
     },
     {
       "name": "Appointments",
@@ -24,7 +32,8 @@
         {
           "tableName": "patient_appointment_default",
           "columnsToIgnore": [
-            "comments"
+            "comments",
+            "appointment_provider"
           ]
         }
       ]
