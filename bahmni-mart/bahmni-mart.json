@@ -55,12 +55,18 @@
       "groupedJobConfigs": [
         {
           "tableName": "surgical_block_default",
-          "columnsToIgnore": []
+          "columnsToIgnore": [
+            "location_name",
+            "creator_name",
+            "changed_by"
+          ]
         },
         {
           "tableName": "surgical_appointment_default",
           "columnsToIgnore": [
-            "notes"
+            "notes",
+            "creator_name",
+            "changed_by"
           ]
         },
         {
