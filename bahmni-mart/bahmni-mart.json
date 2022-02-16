@@ -240,7 +240,8 @@
           "columnsToIgnore": [
             "instructions",
             "stop_notes",
-            "additional_instructions"
+            "additional_instructions",
+            "orderer_name"
           ]
         }
       ]
