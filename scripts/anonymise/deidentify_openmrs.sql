@@ -155,6 +155,29 @@ UPDATE person_attribute pa
   SET pa.value = 231;
 
 --  as the following comments fiels having some sensitive info
+
+UPDATE
+   obs
+SET
+   value_text = 'annonimized observation'
+WHERE
+   concept_id IN
+   (
+      SELECT
+         concept_id
+      FROM
+         concept
+      WHERE
+         datatype_id = 3
+   );
+
+UPDATE
+   obs
+SET
+   comments = 'annonimized comment'
+WHERE
+   comments is not null;
+
 UPDATE obs
     SET value_text = 'annonimized comment'
 WHERE concept_id IN (SELECT DISTINCT concept_id
