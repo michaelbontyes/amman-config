@@ -42,7 +42,9 @@ SET gender = 'M';
 --
 
 update users
-set	password = '4a1750c8607dfa237de36c6305715c223415189',
+set	
+  username = concat( 'AnonUSR', char(round(rand()* 25) + 97), char(round(rand()* 25) + 97), char(round(rand()* 25) + 97), char(round(rand()* 25) + 97) ),
+  password = '4a1750c8607dfa237de36c6305715c223415189',
 	salt = 'c788c6ad82a157b712392ca695dfcf2eed193d7f',
 	secret_question = null,
 	secret_answer = null
