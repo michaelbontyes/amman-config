@@ -3,7 +3,31 @@
     {
       "name": "Programs",
       "type": "programs",
-      "chunkSizeToRead": "500"
+      "chunkSizeToRead": "500",
+      "groupedJobConfigs": [
+        {
+          "tableName": "programs_default",
+          "columnsToIgnore": [
+            "changed_by_name",
+            "creator_name"
+          ]
+        },
+        {
+          "tableName": "program_workflow_states_default",
+          "columnsToIgnore": [
+            "changed_by_name",
+            "creator_name"
+          ]
+        },
+        {
+          "tableName": "program_attributes",
+          "columnsToIgnore": []
+        },
+        {
+          "tableName": "patient_program_data_default",
+          "columnsToIgnore": []
+        }
+      ]
     },
     {
       "name": "Patients",
