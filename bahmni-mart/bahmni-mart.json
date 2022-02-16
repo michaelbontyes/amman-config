@@ -223,7 +223,19 @@
     {
       "name": "Provider",
       "type": "provider",
-      "chunkSizeToRead": "500"
+      "chunkSizeToRead": "500",
+      "groupedJobConfigs": [
+        {
+          "tableName": "provider_default",
+          "columnsToIgnore": [
+            "name"
+          ]
+        },
+        {
+          "tableName": "provider_attributes",
+          "columnsToIgnore": []
+        }
+      ]
     },
     {
       "name": "Visits And Encounters",
