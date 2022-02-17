@@ -292,6 +292,4 @@ WHERE concept_id IN (SELECT DISTINCT concept_id
 
 UPDATE
    patient_appointment
-SET
-   -- lipsum(min words, max words, ipsum start)
-   comments = 'annonimized comment';
+SET comments = 'annonimized comment';
