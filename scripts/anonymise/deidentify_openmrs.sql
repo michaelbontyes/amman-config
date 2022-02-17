@@ -295,3 +295,5 @@ UPDATE
 SET comments = 'annonimized comment';
 
 TRUNCATE TABLE patient_appointment_audit;
+
+TRUNCATE TABLE audit_log;
