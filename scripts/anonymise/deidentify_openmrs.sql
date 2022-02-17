@@ -289,3 +289,9 @@ WHERE concept_id IN (SELECT DISTINCT concept_id
                          'Referred by',
                          'Name Of MLO'
                      ));
+
+UPDATE
+   patient_appointment
+SET
+   -- lipsum(min words, max words, ipsum start)
+   comments = 'annonimized comment';
