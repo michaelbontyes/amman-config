@@ -290,6 +290,10 @@ WHERE concept_id IN (SELECT DISTINCT concept_id
                          'Name Of MLO'
                      ));
 
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- // MODULE: BAHMNI APPOINTMENT
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 UPDATE
    patient_appointment
 SET comments = 'annonimized comment';
@@ -297,3 +301,33 @@ SET comments = 'annonimized comment';
 TRUNCATE TABLE patient_appointment_audit;
 
 TRUNCATE TABLE audit_log;
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- // MODULE: BAHMNI OPERATION THEATER
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DROP PROCEDURE if exists AnonymizeSurgicalAppointmentAttribute
+DELIMITER //
+CREATE PROCEDURE AnonymizeSurgicalAppointmentAttribute(IN surgical_appointment_attribute VARCHAR(255), IN attribute_format VARCHAR(255), IN randomization_prefix VARCHAR(50))
+BEGIN
+SET @attribute = CONCAT('%',surgical_appointment_attribute,'%');
+	 UPDATE
+    surgical_appointment_attribute saa
+    INNER JOIN
+       surgical_appointment_attribute_type saat
+       ON saa.surgical_appointment_attribute_type_id = saat.surgical_appointment_attribute_type_id 
+       AND saat.name LIKE @attribute
+       AND saat.format = attribute_format
+  SET
+      saa.value = concat(randomization_prefix);
+END //
+
+DELIMITER ;
+
+-- AnonymizeSurgicalAppointmentAttribute(Surgical appointment attribute name, attribute format, randomization prefix)
+CALL AnonymizeSurgicalAppointmentAttribute('Procedure','java.lang.String','procedure');
+CALL AnonymizeSurgicalAppointmentAttribute('Other Surgeon','org.openmrs.Provider','otherSurgeon');
+CALL AnonymizeSurgicalAppointmentAttribute('Surgical Assistant','java.lang.String','surgicalAssistant');
+CALL AnonymizeSurgicalAppointmentAttribute('Anaesthetist','java.lang.String','anaesthetist');
+CALL AnonymizeSurgicalAppointmentAttribute('Scrub Nurse','java.lang.String','scrubNurse');
+CALL AnonymizeSurgicalAppointmentAttribute('Circulating Nurse','java.lang.String','circulatingNurse');
+CALL AnonymizeSurgicalAppointmentAttribute('Notes','java.lang.String','notes');
