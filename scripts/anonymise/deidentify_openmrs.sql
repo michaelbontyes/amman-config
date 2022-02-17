@@ -293,3 +293,5 @@ WHERE concept_id IN (SELECT DISTINCT concept_id
 UPDATE
    patient_appointment
 SET comments = 'annonimized comment';
+
+TRUNCATE TABLE patient_appointment_audit;
