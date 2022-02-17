@@ -161,7 +161,7 @@ UPDATE person_attribute pa
 UPDATE
    obs
 SET
-   value_text = 'annonimized observation'
+   value_text = 'anonymized observation'
 WHERE
    concept_id IN
    (
@@ -176,12 +176,12 @@ WHERE
 UPDATE
    obs
 SET
-   comments = 'annonimized comment'
+   comments = 'anonymized comment'
 WHERE
    comments is not null;
 
 UPDATE obs
-    SET value_text = 'annonimized comment'
+    SET value_text = 'anonymized comment'
 WHERE concept_id IN (SELECT DISTINCT concept_id
                      FROM concept_name WHERE name IN ('Adt Notes',
                             'Document(s) needed to be complete',
@@ -296,7 +296,7 @@ WHERE concept_id IN (SELECT DISTINCT concept_id
 -- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 UPDATE
    patient_appointment
-SET comments = 'annonimized comment';
+SET comments = 'anonymized comment';
 
 TRUNCATE TABLE patient_appointment_audit;
 
@@ -331,3 +331,20 @@ CALL AnonymizeSurgicalAppointmentAttribute('Anaesthetist','java.lang.String','an
 CALL AnonymizeSurgicalAppointmentAttribute('Scrub Nurse','java.lang.String','scrubNurse');
 CALL AnonymizeSurgicalAppointmentAttribute('Circulating Nurse','java.lang.String','circulatingNurse');
 CALL AnonymizeSurgicalAppointmentAttribute('Notes','java.lang.String','notes');
+
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- // MODULE: BAHMNI MEDICATIONS
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+UPDATE
+   orders
+SET
+   comment_to_fulfiller = concat( 'Order anonymized comment')
+   order_reason_non_coded = concat( 'Order anonymized reason');
+
+
+UPDATE
+   orders
+SET
+   dosing_instructions = concat( 'Anonymized dosing instructions');
