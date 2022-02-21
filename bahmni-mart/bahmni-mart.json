@@ -48,8 +48,7 @@
         {
           "tableName": "patient_appointment_default",
           "columnsToIgnore": [
-            "comments",
-            "appointment_provider"
+            "comments"
           ]
         }
       ]
@@ -143,6 +142,7 @@
             "orkut",
             "spokenLanguages",
             "nameoftheCamp",
+            "occupation",
             "relationWithPatient"
           ]
         },
