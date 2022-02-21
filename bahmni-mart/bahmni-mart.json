@@ -32,15 +32,7 @@
     {
       "name": "Patients",
       "type": "patients",
-      "chunkSizeToRead": "500",
-      "groupedJobConfigs": [
-        {
-          "tableName": "patient_identifier",
-          "columnsToIgnore": [
-            "Patient_Identifier"
-          ]
-        }
-      ]
+      "chunkSizeToRead": "500"
     },
     {
       "name": "Appointments",
@@ -79,32 +71,17 @@
       "groupedJobConfigs": [
         {
           "tableName": "surgical_block_default",
-          "columnsToIgnore": [
-            "location_name",
-            "creator_name",
-            "changed_by"
-          ]
+          "columnsToIgnore": []
         },
         {
           "tableName": "surgical_appointment_default",
           "columnsToIgnore": [
-            "notes",
-            "creator_name",
-            "changed_by"
+            "notes"
           ]
         },
         {
           "tableName": "surgical_appointment_attributes",
-          "columnsToIgnore": [
-            "procedure",
-            "otherSurgeon",
-            "surgicalAssistant",
-            "anaesthetist",
-            "Anaesthesia Technician",
-            "scrubNurse",
-            "circulatingNurse",
-            "notes"
-            ]
+          "columnsToIgnore": []
         }
       ]
     },
@@ -166,20 +143,7 @@
             "orkut",
             "spokenLanguages",
             "nameoftheCamp",
-            "occupation",
-            "nationality1",
-            "nationality2",
-            "isCareTakerRequired",
-            "statusofOfficialIDdocuments",
-            "legalRepGender",
-            "legalRepNationality",
-            "legalRepRelationWithPatient",
-            "caretakerGender",
-            "caretakerNationality",
-            "legalRepalsoCaretaker",
-            "relationWithPatient",
-            "expectedDateofArrival",
-            "dateofArrival"
+            "relationWithPatient"
           ]
         },
         {
@@ -203,7 +167,6 @@
             "postal_code",
             "address1",
             "address2",
-            "address3",
             "address4",
             "address5",
             "address6",
@@ -252,8 +215,7 @@
           "columnsToIgnore": [
             "instructions",
             "stop_notes",
-            "additional_instructions",
-            "orderer_name"
+            "additional_instructions"
           ]
         }
       ]
